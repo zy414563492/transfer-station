@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+ <form action="index.html" method="post">
+<!action文本内容写到index.html中,与path的index.html相呼应!>
+        {% csrf_token %}
+        <p>
+            <label>用户名：</label>
+            <!下拉框部分!>
+            <input type="text" list="aa" name="name"/>
+            <datalist id = "aa">
+                <option value="chanyeol" />
+                <option value="beakhyun" />
+                <option value="sehun" />
+            </datalist>
+        </p>
+        <p>
+            <lable>密码：</lable>
+            <input type="text" list="bb" name="password"/>
+             <datalist id = "bb">
+                <option value="20001127sn" label="SN"/>
+                <option value="19980506bk" label="BK"/>
+                <option value="5bzsdixh99" label="SN"/>
+            </datalist>
+        </p>
+        <p>
+            <input type="submit" value="提交"/>
+        </p>
+    </form>
+<table border="6", bgcolor="green">
+
+    <thead> <!html中的表头内容!>
+    <tr>
+        <td>用户名</td>
+        <td>密码</td>
+    </tr>
+    </thead>
+    {% for line in form %}
+        <tr>
+            <td>{{line.name}}</td>
+            <td>{{line.password}}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+ <br>
+ <img src="/static/myweb/images/test.png"/>
+
+</body>
+</html>
